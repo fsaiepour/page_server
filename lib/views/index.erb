@@ -1,0 +1,31 @@
+<html>
+<head>
+
+  <script type="text/javascript" src="//media.twiliocdn.com/sdk/js/client/v1.3/twilio.min.js"></script>
+</head>
+<body>
+  <h3>FRZ Test Page: <%= @worker_sid %></h3>
+  <h2><%= @capability_token %></h2>
+  <button onclick="callTwilio()">Call</button>
+  <button onclick="hangUp()">Hang Up</button>
+
+  <script >
+    var device = Twilio.Device.setup('<%= @capability_token %>', {debug : true});
+
+    device.incoming(connection => {
+      console.log("incomming connection...");
+      connection.accept();
+      console.log("connection accepted...");
+    })
+
+    function callTwilio(){
+      fetch("/call");
+    }
+    function hangUp(){
+      Twilio.Device.disconnectAll();
+    }
+
+  </script>
+
+</body>
+</html>

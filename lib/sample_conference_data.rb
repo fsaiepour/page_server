@@ -1,0 +1,5 @@
+module SampleConferenceData
+  WORKER_ID = "1234"
+  TWILIO_ACCOUNT_SID = "AC68ff6b1be9085a080227b17b2a5b31db"
+  TWILIO_AUTH_TOKEN  = "76e543fb7b0f6bb48455566cc47c390b"
+end
