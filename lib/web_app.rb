@@ -25,6 +25,8 @@ class WebApp <Sinatra::Base
     capability = Twilio::Util::Capability.new(SampleConferenceData::TWILIO_ACCOUNT_SID, SampleConferenceData::TWILIO_AUTH_TOKEN)
     capability.allow_client_incoming(SampleConferenceData::WORKER_ID)
     @capability_token = capability.generate
+
+    @worker_id = SampleConferenceData::WORKER_ID
   end
 
   run! if app_file == $0
